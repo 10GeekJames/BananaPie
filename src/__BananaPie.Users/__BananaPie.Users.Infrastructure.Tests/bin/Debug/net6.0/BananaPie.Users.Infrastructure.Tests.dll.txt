@@ -1,0 +1,2 @@
+BananaPie.Users.Core.Tests.BananaPieCoreUsersUnitTests.ConstructorTest
+BananaPie.Users.Core.Tests.BananaPieCoreUsersUnitTests.InvalidEmailAddressConstructorTest

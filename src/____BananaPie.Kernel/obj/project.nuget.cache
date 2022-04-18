@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "VvC/hkDJqhmnc5rbfSTEVUjIMjWnYFBGPbPiQ6il+nf+6D+T/cckrW+2dH+xrVt8mIvsr9sOnBqVIg7CjcHJqA==",
+  "success": true,
+  "projectFilePath": "C:\\code\\2022\\Bananapie\\src\\____BananaPie.Kernel\\BananaPie.Kernel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\James\\.nuget\\packages\\ardalis.specification\\6.0.1\\ardalis.specification.6.0.1.nupkg.sha512",
+    "C:\\Users\\James\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\James\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,29 @@
+@page "/orgbuilder/b/{BookADateName}/{BusinessName}"
+
+@* @implements IAsyncDisposable *@
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> Localize
+@inject IJSRuntime jsRuntime
+
+<div>
+    <Title Value="@Title" />
+    <p> Welcome to the @BusinessName biz of the @BookADateName org </p>
+    <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/DPS")>DPS</MudLink>
+    <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/BPS")>BPS</MudLink>
+    <MudButton>Add Business Segment to @BusinessName</MudButton>
+</div>
+
+@code {
+    [Parameter]
+    public string BookADateName { get; set; }
+    [Parameter]
+    public string BusinessName { get; set; }
+
+    public string Title { get; private set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.Title = $"{BusinessName} < {BookADateName}";
+        await base.OnInitializedAsync();
+    }
+}

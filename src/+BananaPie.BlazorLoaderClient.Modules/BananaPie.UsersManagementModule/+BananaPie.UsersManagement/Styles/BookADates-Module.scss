@@ -1,0 +1,10 @@
+@use 'variables' as v;
+
+a {
+    color: v.$colorGreen;
+}
+
+::deep p {
+    background-color: v.$colorPurple !important;    
+}
+

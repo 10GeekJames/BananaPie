@@ -1,0 +1,19 @@
+@page "/UsersManagementModule"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> Localize
+@inject IJSRuntime jsRuntime
+
+<div>
+    <Title Value="@Title" />
+    <p>Welcome to the Users Management Module </p> 
+    
+</div>
+
+@code {
+    public string Title {get; private set;}    
+    
+    protected override async Task OnInitializedAsync()
+    {
+       this.Title = $"Users Management Module";
+       await base.OnInitializedAsync();
+    }    
+}

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BananaPie.Users.Api.Common</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="AutoMapper" />
+
+    <Using Include="BananaPie.Users.Core" />
+    <Using Include="BananaPie.Users.Api.Common.ViewModels" />
+    <Using Include="BananaPie.Users.Api.Common.Automaps" />
+
+    <Using Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+    <ItemGroup>
+    <ProjectReference Include=".\..\..\____BananaPie.Kernel\BananaPie.Kernel.csproj" />
+    <ProjectReference Include=".\..\..\___BananaPie.Core\BananaPie.Core.csproj" />
+    <ProjectReference Include=".\..\___BananaPie.Users.Core\BananaPie.Users.Core.csproj" />
+    <ProjectReference Include=".\..\__BananaPie.Users.Infrastructure\BananaPie.Users.Infrastructure.csproj" />    
+  </ItemGroup>
+</Project>

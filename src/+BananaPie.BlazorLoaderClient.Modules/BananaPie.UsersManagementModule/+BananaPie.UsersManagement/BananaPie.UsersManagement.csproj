@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+    <PackageId>BookADatesModule</PackageId>
+    <Version>1.0.2</Version>
+    <Authors>James W. Kies</Authors>
+    <Company>the Second Tab</Company>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Blazor.Extensions.Canvas" Version="1.1.1" />
+    <PackageReference Include="Blazored.FluentValidation" Version="2.0.1" />       
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web.Extensions" Version="5.0.0-preview9.20513.1" />        
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.10" />        
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.10" />    
+    <PackageReference Include="MudBlazor" Version="5.1.5" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0-rc.1.21451.13" />    
+  </ItemGroup>    
+  
+  <ItemGroup>
+    <!-- <PackageReference Include="AddToMeeting.Api.Common" Version="1.0.2" />
+    <PackageReference Include="AddToMeeting.BlazorClient.Common" Version="1.0.2" /> -->
+    <Reference Include="AddToMeeting.BlazorClient.Common">
+      <HintPath>./../../../../_AddToMeeting.BlazorClient.Common/bin/Debug/net5.0/AddToMeeting.BlazorClient.Common.dll</HintPath>
+    </Reference>
+    <BlazorWebAssemblyLoad Include="AddToMeeting.BlazorClient.Common.dll" />
+    
+    <Reference Include="AddToMeeting.Api.Common">
+      <HintPath>./../../../../_AddToMeeting.Api.Common/bin/Debug/net5.0/AddToMeeting.Api.Common.dll</HintPath>
+    </Reference>
+    <BlazorWebAssemblyLoad Include="AddToMeeting.Api.Common.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="./../_BookADatesModule.Api.Common/BookADatesModule.Api.Common.csproj" />
+    <ProjectReference Include="./../BookADatesModuleService/BookADatesModuleService.csproj" />    
+    <ProjectReference Include="./../BookADatesModuleServiceLoader/BookADatesModuleServiceLoader.csproj" />            
+  </ItemGroup>
+
+  <ItemGroup>
+    <Watch Include="**/*.scss" />
+  </ItemGroup>
+
+  <Target Name="SassCheck" BeforeTargets="BeforeBuild">
+    <Exec Command="sass --version" ContinueOnError="true">
+    <Output TaskParameter="ExitCode" PropertyName="ErrorCodeSass" />
+    </Exec>
+    <Error Condition="'$(ErrorCodeSass)' != '0'" Text="Dart-sass is required for this project. Install globally with 'npm i -g sass' " />
+  </Target>
+
+  <Target Name="SassBuild" BeforeTargets="BeforeBuild">
+    <Exec Command="sass Styles:wwwroot/ --embed-source-map ./:./ Pages:Pages Shared:Shared --style compressed --load-path=Styles --update" ContinueOnError="true">
+    <Output TaskParameter="ExitCode" PropertyName="ErrorCodeSass" />
+    </Exec>
+    <Error Condition="'$(ErrorCodeSass)' != '0'" Text="Dart-sass is unhappy about something " />
+  </Target>  
+</Project>

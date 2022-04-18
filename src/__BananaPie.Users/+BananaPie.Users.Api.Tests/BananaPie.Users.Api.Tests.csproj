@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.46" />
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.17.2" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Ardalis.HttpClientTestExtensions" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Ardalis.HttpClientTestExtensions" />
+
+    <Using Include="Autofac.Extensions.DependencyInjection" />
+
+    <Using Include="BananaPie.Users.Api" />
+    <Using Include="BananaPie.Users.Api.Common.RequestResponse" />
+    <Using Include="BananaPie.Users.Api.Common.ViewModels" />
+    <Using Include="BananaPie.Users.Infrastructure.Data" />
+    <Using Include="BananaPie.Users.Core.Tests" />
+
+    <Using Include="MediatR" />
+
+    <Using Include="Microsoft.AspNetCore.Hosting" />
+    <Using Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <Using Include="Microsoft.AspNetCore.TestHost" />
+    <Using Include="Microsoft.EntityFrameworkCore" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.Hosting" />
+    <Using Include="Serilog" />
+
+    <Using Include="Moq" />
+
+    <Using Include="Newtonsoft.Json" />
+
+    <Using Include="System" />
+    <Using Include="System.Net" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Linq" />
+    <Using Include="System.Net.Http" />
+    <Using Include="System.Threading" />
+    <Using Include="System.Threading.Tasks" />
+    <Using Include="System.Runtime.CompilerServices" />
+
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=".\..\..\____BananaPie.Kernel\BananaPie.Kernel.csproj" />
+    <ProjectReference Include=".\..\..\___BananaPie.Core\BananaPie.Core.csproj" />
+    <ProjectReference Include=".\..\___BananaPie.Users.Core\BananaPie.Users.Core.csproj" />
+    <ProjectReference Include=".\..\___BananaPie.Users.Core.Tests\BananaPie.Users.Core.Tests.csproj" />
+
+    <ProjectReference Include=".\..\__BananaPie.Users.Infrastructure\BananaPie.Users.Infrastructure.csproj" />
+    <ProjectReference Include=".\..\_BananaPie.Users.Api.Common\BananaPie.Users.Api.Common.csproj" />
+    <ProjectReference Include=".\..\+BananaPie.Users.Api\BananaPie.Users.Api.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,91 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BananaPie.Users.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="AutoMapper" />    
+    <Using Include="Ardalis.ListStartupServices" />
+    <Using Include="Autofac" />    
+    <Using Include="Autofac.Extensions.DependencyInjection" />
+
+    <Using Include="BananaPie.Core" />
+    <Using Include="BananaPie.Users.Core" />
+    <Using Include="BananaPie.Users.Api.Common.ViewModels" />
+    <Using Include="BananaPie.Users.Api.Common.Automaps" />
+    <Using Include="BananaPie.Users.Api.Common.RequestResponse" />
+    <Using Include="BananaPie.Users.Infrastructure.Data" />
+    <Using Include="BananaPie.Users.Infrastructure" />
+    <Using Include="BananaPie.Users.Infrastructure.Queries" />    
+    <Using Include="BananaPie.Users.Infrastructure.Commands" />    
+    
+    <Using Include="Microsoft.AspNetCore.Hosting" />
+    <Using Include="Microsoft.AspNetCore.Authorization" />
+    <Using Include="Microsoft.AspNetCore.Builder" />
+    <Using Include="Microsoft.AspNetCore.Mvc" />    
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.EntityFrameworkCore" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.Configuration" />
+    <Using Include="Microsoft.OpenApi.Models" />
+
+    <Using Include="MediatR" />
+
+    <Using Include="Newtonsoft.Json" />
+    <Using Include="Newtonsoft.Json.Serialization" />
+
+    <Using Include="Serilog" />    
+    <Using Include="Serilog.AspNetCore" />    
+
+    <Using Include="System" />    
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Diagnostics" />
+    <Using Include="System.Reflection" />    
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.ApiEndpoints" Version="4.0.1" />
+    <PackageReference Include="Ardalis.ListStartupServices" Version="1.1.3" />
+    <PackageReference Include="Ardalis.Result" Version="3.1.2" />
+    <PackageReference Include="Ardalis.Result.AspNetCore" Version="3.1.2" />
+
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" PrivateAssets="all" Version="6.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" PrivateAssets="All" Version="6.0.3" />
+    
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.0.0" />
+    <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+
+
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=".\..\..\____BananaPie.Kernel\BananaPie.Kernel.csproj" />
+    <ProjectReference Include=".\..\..\___BananaPie.Core\BananaPie.Core.csproj" />
+    <ProjectReference Include=".\..\___BananaPie.Users.Core\BananaPie.Users.Core.csproj" />
+    <ProjectReference Include=".\..\__BananaPie.Users.Infrastructure\BananaPie.Users.Infrastructure.csproj" />
+    <ProjectReference Include=".\..\_BananaPie.Users.Api.Common\BananaPie.Users.Api.Common.csproj" />
+  </ItemGroup>
+
+</Project>

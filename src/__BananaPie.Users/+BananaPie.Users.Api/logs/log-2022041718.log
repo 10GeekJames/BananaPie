@@ -1,0 +1,104 @@
+2022-04-17 18:05:55.393 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Infrastructure] [{ Id: 10401, Name: "Microsoft.EntityFrameworkCore.Infrastructure.ServiceProviderCreated" }] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-04-17 18:05:55.796 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Model.Validation] [{ Id: 10600, Name: "Microsoft.EntityFrameworkCore.Model.Validation.ShadowPropertyCreated" }] The property '"KnownAlias"."UserId"' was created in shadow state because there are no eligible CLR members with a matching name.
+2022-04-17 18:05:55.922 -04:00 [Information] [Microsoft.EntityFrameworkCore.Infrastructure] [{ Id: 10403, Name: "Microsoft.EntityFrameworkCore.Infrastructure.ContextInitialized" }] Entity Framework Core "6.0.4" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.4"' with options: "None"
+2022-04-17 18:05:55.955 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20000, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionOpening" }] Opening connection to database '"main"' on server '"BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:55.967 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20001, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionOpened" }] Opened connection to database '"main"' on server '"C:\code\2022\Bananapie\src\__BananaPie.Users\+BananaPie.Users.Api\BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:55.978 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20103, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandCreating" }] Creating DbCommand for '"ExecuteScalar"'.
+2022-04-17 18:05:55.985 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20104, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandCreated" }] Created DbCommand for '"ExecuteScalar"' (7ms).
+2022-04-17 18:05:55.988 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20000, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionOpening" }] Opening connection to database '"main"' on server '"BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:55.993 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20001, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionOpened" }] Opened connection to database '"main"' on server '"C:\code\2022\Bananapie\src\__BananaPie.Users\+BananaPie.Users.Api\BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.000 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20100, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandExecuting" }] Executing DbCommand [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;"
+2022-04-17 18:05:56.018 -04:00 [Information] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20101, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandExecuted" }] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;"
+2022-04-17 18:05:56.023 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20002, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionClosing" }] Closing connection to database '"main"' on server '"C:\code\2022\Bananapie\src\__BananaPie.Users\+BananaPie.Users.Api\BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.027 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20003, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionClosed" }] Closed connection to database '"main"' on server '"BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.036 -04:00 [Information] [Microsoft.EntityFrameworkCore.Infrastructure] [{ Id: 10403, Name: "Microsoft.EntityFrameworkCore.Infrastructure.ContextInitialized" }] Entity Framework Core "6.0.4" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.4"' with options: "None"
+2022-04-17 18:05:56.064 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10111, Name: "Microsoft.EntityFrameworkCore.Query.QueryCompilationStarting" }] Compiling query expression: "
+"'"DbSet<User>()
+    .FirstOrDefault(rs => rs.Id == __User1Id_0)"'
+2022-04-17 18:05:56.224 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10107, Name: "Microsoft.EntityFrameworkCore.Query.QueryExecutionPlanned" }] Generated query execution expression: "
+"'"queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.EmailAddress (string) Required MaxLength(100), 1], [Property: User.FirstJoinedDate (DateTime) Required, 2] }
+        SELECT TOP(1) u.Id, u.EmailAddress, u.FirstJoinedDate
+        FROM Users AS u
+        WHERE u.Id == @__User1Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    BananaPie.Users.Infrastructure.Data.AppDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()"'
+2022-04-17 18:05:56.246 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20103, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandCreating" }] Creating DbCommand for '"ExecuteReader"'.
+2022-04-17 18:05:56.247 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20104, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandCreated" }] Created DbCommand for '"ExecuteReader"' (1ms).
+2022-04-17 18:05:56.250 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20000, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionOpening" }] Opening connection to database '"main"' on server '"BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.252 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20001, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionOpened" }] Opened connection to database '"main"' on server '"C:\code\2022\Bananapie\src\__BananaPie.Users\+BananaPie.Users.Api\BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.255 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20100, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandExecuting" }] Executing DbCommand [Parameters=["@__User1Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"u\".\"Id\", \"u\".\"EmailAddress\", \"u\".\"FirstJoinedDate\"
+FROM \"Users\" AS \"u\"
+WHERE \"u\".\"Id\" = @__User1Id_0
+LIMIT 1"
+2022-04-17 18:05:56.262 -04:00 [Information] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20101, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandExecuted" }] Executed DbCommand ("8"ms) [Parameters=["@__User1Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"u\".\"Id\", \"u\".\"EmailAddress\", \"u\".\"FirstJoinedDate\"
+FROM \"Users\" AS \"u\"
+WHERE \"u\".\"Id\" = @__User1Id_0
+LIMIT 1"
+2022-04-17 18:05:56.301 -04:00 [Debug] [Microsoft.EntityFrameworkCore.ChangeTracking] [{ Id: 10806, Name: "Microsoft.EntityFrameworkCore.ChangeTracking.StartedTracking" }] Context '"AppDbContext"' started tracking '"User"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-04-17 18:05:56.321 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20300, Name: "Microsoft.EntityFrameworkCore.Database.Command.DataReaderDisposing" }] A data reader was disposed.
+2022-04-17 18:05:56.323 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20002, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionClosing" }] Closing connection to database '"main"' on server '"C:\code\2022\Bananapie\src\__BananaPie.Users\+BananaPie.Users.Api\BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.324 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Database.Connection] [{ Id: 20003, Name: "Microsoft.EntityFrameworkCore.Database.Connection.ConnectionClosed" }] Closed connection to database '"main"' on server '"BananaPie.Users.Api.sqlite"'.
+2022-04-17 18:05:56.327 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Infrastructure] [{ Id: 10407, Name: "Microsoft.EntityFrameworkCore.Infrastructure.ContextDisposed" }] '"AppDbContext"' disposed.
+2022-04-17 18:05:56.331 -04:00 [Debug] [Microsoft.EntityFrameworkCore.Infrastructure] [{ Id: 10407, Name: "Microsoft.EntityFrameworkCore.Infrastructure.ContextDisposed" }] '"AppDbContext"' disposed.
+2022-04-17 18:05:56.337 -04:00 [Debug] [Microsoft.Extensions.Hosting.Internal.Host] [{ Id: 1, Name: "Starting" }] Hosting starting
+2022-04-17 18:05:56.356 -04:00 [Information] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 63, Name: "UsingProfileAsKeyRepositoryWithDPAPI" }] User profile is available. Using '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-17 18:05:56.373 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-184ddc01-e70f-4068-9a6a-49a67d3c634f.xml"'.
+2022-04-17 18:05:56.379 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-20154e3c-1817-477d-907b-d9874820cb27.xml"'.
+2022-04-17 18:05:56.381 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-36ab572a-defc-4c42-8df0-4a31a11d13ab.xml"'.
+2022-04-17 18:05:56.383 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-70cdce6a-0208-4701-99a5-d794f10c9f57.xml"'.
+2022-04-17 18:05:56.384 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-996d0b4a-11e1-41f0-94e3-537796e2bcd3.xml"'.
+2022-04-17 18:05:56.386 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-a89d93e6-f8e2-41af-b294-40da5e2291cd.xml"'.
+2022-04-17 18:05:56.388 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-b0d813b1-8d54-4401-97da-f63b8893daa1.xml"'.
+2022-04-17 18:05:56.389 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository] [{ Id: 37, Name: "ReadingDataFromFile" }] Reading data from file '"C:\Users\James\AppData\Local\ASP.NET\DataProtection-Keys\key-e77503ae-eef6-48dc-9ff9-5c4d15b73343.xml"'.
+2022-04-17 18:05:56.394 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {184ddc01-e70f-4068-9a6a-49a67d3c634f}.
+2022-04-17 18:05:56.398 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {20154e3c-1817-477d-907b-d9874820cb27}.
+2022-04-17 18:05:56.399 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {36ab572a-defc-4c42-8df0-4a31a11d13ab}.
+2022-04-17 18:05:56.401 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {70cdce6a-0208-4701-99a5-d794f10c9f57}.
+2022-04-17 18:05:56.403 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {996d0b4a-11e1-41f0-94e3-537796e2bcd3}.
+2022-04-17 18:05:56.404 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {a89d93e6-f8e2-41af-b294-40da5e2291cd}.
+2022-04-17 18:05:56.405 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {b0d813b1-8d54-4401-97da-f63b8893daa1}.
+2022-04-17 18:05:56.406 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] [{ Id: 18, Name: "FoundKey" }] Found key {e77503ae-eef6-48dc-9ff9-5c4d15b73343}.
+2022-04-17 18:05:56.412 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver] [{ Id: 13, Name: "ConsideringKeyWithExpirationDateAsDefaultKey" }] Considering key {a89d93e6-f8e2-41af-b294-40da5e2291cd} with expiration date 2022-06-28 20:57:23Z as default key.
+2022-04-17 18:05:56.414 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.TypeForwardingActivator] [] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.19.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2022-04-17 18:05:56.417 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor] [{ Id: 51, Name: "DecryptingSecretElementUsingWindowsDPAPI" }] Decrypting secret element using Windows DPAPI.
+2022-04-17 18:05:56.418 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.TypeForwardingActivator] [] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.19.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2022-04-17 18:05:56.421 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory] [{ Id: 4, Name: "OpeningCNGAlgorithmFromProviderWithChainingModeCBC" }] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2022-04-17 18:05:56.423 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory] [{ Id: 3, Name: "OpeningCNGAlgorithmFromProviderWithHMAC" }] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2022-04-17 18:05:56.428 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider] [{ Id: 2, Name: "UsingKeyAsDefaultKey" }] Using key {a89d93e6-f8e2-41af-b294-40da5e2291cd} as the default key.
+2022-04-17 18:05:56.431 -04:00 [Debug] [Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService] [{ Id: 65, Name: "KeyRingWasLoadedOnStartup" }] Key ring with default key {a89d93e6-f8e2-41af-b294-40da5e2291cd} was loaded during application startup.
+2022-04-17 18:05:56.481 -04:00 [Debug] [Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory] [{ Id: 12, Name: "RegisteredModelBinderProviders" }] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-04-17 18:05:56.498 -04:00 [Debug] [Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler] [{ Id: 4, Name: "ViewCompilerNoCompiledViewsFound" }] Initializing Razor view compiler with no compiled views.
+2022-04-17 18:05:56.533 -04:00 [Warning] [] [] bad things happen
+2022-04-17 18:05:56.772 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer] [{ Name: "LocatedDevelopmentCertificate" }] Using development certificate: "CN=localhost" (Thumbprint: "6A9AF78B1C4C68F2BEE9B447E8B10AFA36852B51")
+2022-04-17 18:05:56.777 -04:00 [Warning] [Microsoft.AspNetCore.Server.Kestrel] [] Overriding address(es) '"https://localhost:7084, http://localhost:5146"'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2022-04-17 18:05:56.825 -04:00 [Information] [Microsoft.Hosting.Lifetime] [{ Id: 14, Name: "ListeningOnAddress" }] Now listening on: "http://[::]:5004"
+2022-04-17 18:05:56.827 -04:00 [Information] [Microsoft.Hosting.Lifetime] [{ Id: 14, Name: "ListeningOnAddress" }] Now listening on: "https://[::]:5005"
+2022-04-17 18:05:56.828 -04:00 [Debug] [Microsoft.AspNetCore.Hosting.Diagnostics] [{ Id: 13, Name: "HostingStartupAssemblyLoaded" }] Loaded hosting startup assembly "BananaPie.Users.Api"
+2022-04-17 18:05:56.830 -04:00 [Information] [Microsoft.Hosting.Lifetime] [] Application started. Press Ctrl+C to shut down.
+2022-04-17 18:05:56.832 -04:00 [Information] [Microsoft.Hosting.Lifetime] [] Hosting environment: "Development"
+2022-04-17 18:05:56.833 -04:00 [Information] [Microsoft.Hosting.Lifetime] [] Content root path: "C:\code\2022\Bananapie\src\__BananaPie.Users\+BananaPie.Users.Api"
+2022-04-17 18:05:56.834 -04:00 [Debug] [Microsoft.Extensions.Hosting.Internal.Host] [{ Id: 2, Name: "Started" }] Hosting started
+2022-04-17 18:06:19.404 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:06:19.671 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:06:32.579 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:06:32.847 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:06:57.306 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:06:57.574 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:07:15.678 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:07:15.945 -04:00 [Debug] [Microsoft.AspNetCore.Server.Kestrel] [] Config reload token fired. Checking for changes...
+2022-04-17 18:07:17.785 -04:00 [Information] [Microsoft.Hosting.Lifetime] [] Application is shutting down...
+2022-04-17 18:07:17.785 -04:00 [Debug] [Microsoft.Extensions.Hosting.Internal.Host] [{ Id: 3, Name: "Stopping" }] Hosting stopping
+2022-04-17 18:07:17.791 -04:00 [Debug] [Microsoft.Extensions.Hosting.Internal.Host] [{ Id: 4, Name: "Stopped" }] Hosting stopped

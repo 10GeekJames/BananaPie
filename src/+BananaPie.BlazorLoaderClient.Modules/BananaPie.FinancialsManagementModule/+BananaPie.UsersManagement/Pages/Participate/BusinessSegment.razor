@@ -1,0 +1,42 @@
+@page "/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}"
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> Localize
+@inject IJSRuntime jsRuntime
+
+<div>
+    <Title Value="@Title" />
+    <p> Welcome to the @BusinessSegmentName seg of the @BusinessName biz of the @BookADateName org </p>
+    <MudPaper> 
+        <p>Product Families</p>       
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyA")>Product Family A</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyB")>Product Family B</MudLink>
+    </MudPaper>
+    <MudButton>Add Product Family to @BusinessSegmentName</MudButton>
+
+    <MudPaper> 
+        <p>Products</p>       
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyA.1")>Product A.1</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyA.2")>Product A.2</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyA.3")>Product A.3</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyB.1")>Product B.1</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/ProductFamilyB.2")>Product B.2</MudLink>
+    </MudPaper>
+    <MudButton>Add Product to @BusinessSegmentName</MudButton>
+</div>
+
+@code {
+    [Parameter]
+    public string BookADateName { get; set; }
+    [Parameter]
+    public string BusinessName { get; set; }
+    [Parameter]
+    public string BusinessSegmentName { get; set; }
+
+    public string Title { get; private set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.Title = $"{BusinessSegmentName} < {BusinessName} < {BookADateName}";
+        await base.OnInitializedAsync();
+    }
+}

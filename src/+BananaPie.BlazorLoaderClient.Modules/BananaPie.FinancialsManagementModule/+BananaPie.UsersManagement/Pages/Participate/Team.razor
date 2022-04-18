@@ -1,0 +1,48 @@
+@page "/orgbuilder/team/{BookADateName}/{BusinessName}/{TeamName}"
+
+@* @implements IAsyncDisposable *@
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> Localize
+@inject IJSRuntime jsRuntime
+
+<div>
+    <Title Value="@Title" />
+    <p> Welcome to the @TeamName of the @BusinessName biz of the @BookADateName org </p>
+    <MudPaper>
+        <div>
+            <p>Team Name: </p> <p>Team A</p>
+        </div>
+        <div>
+            <MudButton>Edit Team</MudButton>
+        </div>
+    </MudPaper>
+    <MudButton>Add Existing Team to @BusinessName</MudButton>
+    <MudButton>Add New Team to @BusinessName</MudButton>
+
+    <MudPaper>
+        <div>
+            <p>Assigned Products</p>
+            <div>
+                <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/DPS/ProductFamilyA/ProductA1")>Product A.1</MudLink>
+                <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/DPS/ProductFamilyA/ProductA2")>Product A.2</MudLink>
+            </div>
+        </div>
+    </MudPaper>
+</div>
+
+@code {
+    [Parameter]
+    public string BookADateName { get; set; }
+    [Parameter]
+    public string BusinessName { get; set; }
+    [Parameter]
+    public string TeamName { get; set; }
+
+    public string Title { get; private set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.Title = $"{TeamName} < {BusinessName} < {BookADateName}";
+        await base.OnInitializedAsync();
+    }
+}

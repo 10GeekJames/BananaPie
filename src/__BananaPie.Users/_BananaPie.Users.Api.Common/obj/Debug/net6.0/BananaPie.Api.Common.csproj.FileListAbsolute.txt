@@ -1,0 +1,12 @@
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\bin\Debug\net6.0\BananaPie.Users.Api.Common.deps.json
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\bin\Debug\net6.0\BananaPie.Users.Api.Common.dll
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\bin\Debug\net6.0\BananaPie.Users.Api.Common.pdb
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.csproj.AssemblyReference.cache
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.AssemblyInfoInputs.cache
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.AssemblyInfo.cs
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.csproj.CoreCompileInputs.cache
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.dll
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\refint\BananaPie.Users.Api.Common.dll
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\BananaPie.Users.Api.Common.pdb
+C:\code\2022\Bananapie\src\_BananaPie.Users.Api.Common\obj\Debug\net6.0\ref\BananaPie.Users.Api.Common.dll

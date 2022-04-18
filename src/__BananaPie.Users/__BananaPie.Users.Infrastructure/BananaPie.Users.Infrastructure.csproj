@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BananaPie.Users.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="Ardalis.EFCore.Extensions" />
+    <Using Include="BananaPie.Users.Core" />
+    <Using Include="BananaPie.Kernel" />
+    <Using Include="MediatR" />
+    <Using Include="Microsoft.EntityFrameworkCore" />   
+    <Using Include="Serilog" />
+    <Using Include="BananaPie.Kernel.Interfaces" />
+    <Using Include="BananaPie.Users.Infrastructure.Commands" />
+    <Using Include="BananaPie.Users.Infrastructure.Queries" />
+    <Using Include="BananaPie.Users.Core.Specifications" />   
+    <Using Include="System.Reflection" />   
+    <Using Include="Autofac" />   
+    <Using Include="BananaPie.Users.Infrastructure.Data" />   
+    <Using Include="MediatR.Pipeline" />   
+    <Using Include="AutofacSerilogIntegration" />   
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="Ardalis.EFCore.Extensions" Version="1.1.0" />
+    <PackageReference Include="AutofacSerilogIntegration" Version="5.0.0" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" PrivateAssets="all" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" /> 
+
+    <PackageReference Include="SQLite" Version="3.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=".\..\..\____BananaPie.Kernel\BananaPie.Kernel.csproj" />
+    <ProjectReference Include=".\..\___BananaPie.Users.Core\BananaPie.Users.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+@use 'variables' as v;
+
+@mixin color-background-mixin ($color)
+{
+    height: 60vh; 
+    background-color: $color !important;
+    overflow-y: scroll;   
+}
+
+::deep p {
+    @include color-background-mixin(v.$colorGreen);
+}
+
+p {
+    @include color-background-mixin(v.$colorBlue);    
+}
+
+
+.color-non-mud-background {
+    @include color-background-mixin(v.$colorRed);
+}
+
+::deep .color-mud-background {
+    @include color-background-mixin(v.$colorOrange);
+}

@@ -1,0 +1,200 @@
+@implements IAsyncDisposable
+
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Linq
+
+@inject ISignalRService SignalRService
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Client_BasicComponent> Localize
+@inject ISnackbar Snackbar
+
+<OrgBuildAdminSettings_Basic roomName="@roomName" />
+    
+<MudGrid Spacing="1">
+    <MudItem xs="10">        
+        <MudPaper Class="py-4 px-8 mb-4">
+            <MudText Class="mb-2">
+            Welcome Participant!
+            </MudText>
+            <MudText Inline="true" Class="mb-2">            
+            This is the Org Builder Module.
+            </MudText>
+        </MudPaper>
+    </MudItem>
+     <MudItem xs="2">
+         <span style="display:grid;place-items:center;">
+            <MudToggleIconButton @bind-Toggled="@_isOpen" Icon="@Icons.Filled.HelpOutline" Color="@Color.Primary" ToggledIcon="@Icons.Filled.HelpOutline" ToggledColor="@Color.Secondary" />
+         </span>
+    </MudItem>
+</MudGrid>
+<MudPopover Open="@_isOpen" Fixed="true" Class="px-4 pt-4">
+    <div class="d-flex flex-column">
+        <MudText>Content of the popover can be anything.</MudText>
+        <MudButton OnClick="@ToggleOpen" Class="ml-auto mr-n3 mb-1" Color="Color.Error">Close</MudButton>
+    </div>
+</MudPopover>
+<MudGrid Spacing="1">
+    <MudItem xs="9" Class="pa-2">
+        <MudPage>
+            
+            @if(topic == "" && topics.Count() == 0) {
+                <MudText xs="12">Topic is unset</MudText>
+            }
+            else if(topics.Count() == 0 && topic != "") {
+                <MudText xs="12">Current Topic is: @topic</MudText>
+            } 
+            else {            
+                <MudText xs="12">Current Topics are: @topicsAsString</MudText>
+            } 
+            <MudText xs="12" Class="color-mud-background" Typo="Typo.body2">Feed:</MudText>
+            <ul id="messagesList">
+                @foreach (var messageEntry in messages.OrderByDescending(r=>r.Stamp))
+                {
+                    <li>                        
+                        @* <MudChip Size="Size.Small">@messageEntry?.Category</MudChip> *@
+                        <div>@messageEntry?.Category</div>
+                        <span style="display:flex;flex-direction:column;flex-align:center;justify-content:center;">
+                            <sub>@messageEntry?.UserName:</sub>                         
+                            <MudText Inline="true">@messageEntry?.Message</MudText>
+                        </span>
+                    </li>
+                }
+            </ul>
+        </MudPage>
+    </MudItem>
+    <MudItem xs="3" Style="min-height: 60vh;">
+        <MudPage Style="background-color: #ffffff08;">
+            <MudText xs="12" Typo="Typo.body2">Room Information:</MudText>            
+        </MudPage>
+    </MudItem>
+</MudGrid>
+<MudGrid Spacing="1">
+    <MudItem xs="8" Class="d-flex">
+        <MudTextField  @bind-Value="message" Lines="3"  Variant="Variant.Outlined"  Label="Message to Send" />        
+
+    </MudItem>
+    <MudItem xs="4">
+        <MudSelect T="string" Class="ml-2" Label="Post Context" Dense="true" @bind-Value="selectedOOC" FullWidth="false">
+            @foreach(var item in ValidOOC) {
+                <MudSelectItem Value="@item" />
+            }            
+        </MudSelect>
+
+        @if(topics.Count() > 0) {
+            <MudSelect T="string" Class="ml-2" Label="Post Topic" Dense="true" @bind-Value="selectedTopic" FullWidth="false">
+                @foreach(var item in topics) {
+                    <MudSelectItem Value="@item" />
+                }            
+            </MudSelect>
+        }
+        
+        <MudButton xs="2" Class="ma-2" Size="Size.Large" FullWidth="true" Variant="Variant.Outlined"  OnClick="() => SignalSendMessage(roomName, message)"
+            disabled="@(!IsConnected)">@LocalizeSharedBase["Send_Button"]</MudButton>
+    </MudItem>
+</MudGrid>
+<MudTooltip Text="Add">
+    <MudFab Icon="@Icons.Material.Filled.Add" Color="Color.Secondary" />
+</MudTooltip>
+@code {
+    [Parameter]
+    public string roomName { get; set; }
+
+    public bool _isOpen;
+
+    public void ToggleOpen()
+    {
+        if (_isOpen)
+            _isOpen = false;
+        else
+            _isOpen = true;
+    }
+    public List<string> ValidOOC = new List<string> { "OnRecord", "Social", "QandAs", "ParkingLot", "Misc" };
+
+    @* REQUEST: applicable colors to each selected value so when selected another array of colors will be used within the mudchip, or pull from palette *@
+
+    private IDisposable hubReceiveMessage;
+    private IDisposable hubReceiveOOCValues;
+    private IDisposable hubReceiveTopicValues;
+    private IDisposable hubReceiveTopicsValues;
+    
+    private string oocValues = "OnRecord,Social,QandAs,ParkingLot,Misc";
+    private string selectedOOC = "OnRecord";
+    private string topic = "General";
+    private string selectedTopic = "";
+    private List<string> topics = new List<string>();
+        
+    protected bool IsConnected => SignalRService.IsConnected;
+    
+    protected string userName;
+    private string message;
+    private List<MessageEntry> messages = new List<MessageEntry>();
+
+    private string topicsAsString => String.Join(",", topics);
+    
+    protected override async Task OnInitializedAsync()
+    {
+
+        this.userName = SignalRService.UserName;        
+        await this.SignalRService.JoinLiveRoom(roomName);
+        
+        hubReceiveMessage = this.SignalRService.HubConnection.On<string, string, string>("ReceiveMessage", (room, userName, message) => 
+        {
+            Console.WriteLine($"{roomName}, {userName}, {message}");
+            if(message.Trim() != "") {
+                var encodedMsg = $"{userName}: {message}";
+                var parsedMessageText = message.Split("|")[1];
+                var parsedMessageCategory = message.Split("|")[0];
+                var messageEntry = new MessageEntry { Message=parsedMessageText, UserName=userName, Stamp=DateTime.Now, Category=parsedMessageCategory };
+                messages.Add(messageEntry);
+                StateHasChanged();
+            }
+        });
+
+        hubReceiveOOCValues = this.SignalRService.HubConnection.On<string, string>("ReceiveOOCValues", (room, oocValues) => 
+        {
+            ValidOOC = oocValues.Split(',').ToList();
+            selectedOOC = ValidOOC.FirstOrDefault();
+            StateHasChanged();
+            Snackbar.Add($"The host has set new OOC Values: <br /> {oocValues}");
+        });
+
+        hubReceiveTopicValues = this.SignalRService.HubConnection.On<string, string>("ReceiveTopicValues", (room, topic) => 
+        {
+            this.topics = new List<string>();
+            this.topic = topic;
+            StateHasChanged();
+            Snackbar.Add($"The host has set a new topic: <br /> {topic}");
+        });
+
+        hubReceiveTopicsValues = this.SignalRService.HubConnection.On<string, string>("ReceiveTopicsValues", (room, topics) => 
+        {
+            this.topic = "";
+            this.topics = topics.Split(',').ToList<string>();
+            StateHasChanged();
+            Snackbar.Add($"The host has set new topics: <br /> {topics}");
+        });
+
+        await base.OnInitializedAsync();        
+    }
+    private void SignalSendMessage(string roomName, string message){
+        
+        var smashedMsg = selectedOOC + "|" + message;
+        this.SignalRService.SendSignalMessage(roomName, smashedMsg);
+        message = "";
+    }
+    
+    public async ValueTask DisposeAsync()
+    {
+        hubReceiveMessage?.Dispose();
+        hubReceiveOOCValues?.Dispose();
+        hubReceiveTopicValues?.Dispose();
+        hubReceiveTopicsValues?.Dispose();
+        await Task.Yield();
+    }
+    
+    public class MessageEntry {
+        public string Message {get;set;}
+        public DateTime Stamp {get;set;}
+        public string UserName {get;set;}
+        public string Category {get;set;}
+    }
+}

@@ -1,0 +1,39 @@
+@page "/liveroom/{roomName}/orgBuildpulltopic"
+@* @implements IAsyncDisposable *@
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Participate_PullTopic> Localize
+@inject IJSRuntime jsRuntime
+
+<Title Value="@Title" />
+<OrgBuildAdminNav />
+<OrgBuildAdminSettings />
+
+@if (roomName != "")
+{
+    <div style="height: 88vh; margin-left: 15px;">
+        @* <div style="position: relative; float: right; top: -55px;">
+            <MudCard Elevation="3" Style="background-color: black;">
+                <ParticipateHostSettingsComponent roomName="@roomName" />        
+                <ParticipateHostComponent roomName="@roomName" />                    
+            </MudCard>
+        </div>
+        *@
+        <div style="margin-left: 15px; margin-top: 15px;">
+            <Client_PullTopicComponent roomName="@roomName" />       
+        </div>                      
+    </div>        
+}
+
+@code {
+    [Parameter]
+    public string roomName { get; set; }
+    
+    public string Title {get; private set;}
+    
+     protected override async Task OnInitializedAsync()
+    {
+       this.Title = $"OrgBuildPullTopic - {roomName}";
+       await base.OnInitializedAsync();
+    }
+    
+}

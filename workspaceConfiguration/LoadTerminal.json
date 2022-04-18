@@ -1,0 +1,30 @@
+{
+    "version": "1.2.1",
+    "groups": [
+        {
+            "terminals": [
+                { "name" : ".Kernel", "path": "./src/____BananaPie.Kernel/", "cmd": [ "dotnet watch build" ] },
+                { "name" : ".Core", "path": "./src/___BananaPie.Core/", "cmd": [ "dotnet watch build" ] }
+            ]
+        },
+        {
+            "terminals": [
+                { "name" : ".Users.Core", "path": "./src/__BananaPie.Users/___BananaPie.Users.Core", "cmd": [ "dotnet watch build" ] },
+                { "name" : ".Users.Infrastructure", "path": "./src/__BananaPie.Users/__BananaPie.Users.Infrastructure", "cmd": [ "dotnet watch build" ] },
+                { "name" : ".Users.Api.Common", "path": "./src/__BananaPie.Users/_BananaPie.Users.Api.Common", "cmd": [ "dotnet watch build" ] },
+                { "name" : ".Users.Api", "path": "./src/__BananaPie.Users/+BananaPie.Users.Api", "cmd": [ "dotnet watch run" ] }
+            ]
+        },
+        {
+            "terminals": [
+                { "name" : ".Kernel.Tests", "path": "./src/____BananaPie.Kernel.Tests/", "cmd": [ "dotnet watch test" ] },
+                { "name" : ".Core.Tests", "path": "./src/___BananaPie.Core.Tests/", "cmd": [ "dotnet watch test" ] },
+                
+                { "name" : ".Users.Core.Tests", "path": "./src/__BananaPie.Users/___BananaPie.Users.Core.Tests", "cmd": [ "dotnet watch test" ] },
+                { "name" : ".Users.Infrastructure.Tests", "path": "./src/__BananaPie.Users/__BananaPie.Users.Infrastructure.Tests", "cmd": [ "dotnet watch test" ] },
+                { "name" : ".Users.Api.Common.Tests", "path": "./src/__BananaPie.Users/+BananaPie.Users.Api.Common.Tests", "cmd": [ "dotnet watch test" ] },
+                { "name" : ".Users.Api.Tests", "path": "./src/__BananaPie.Users/+BananaPie.Users.Api.Tests", "cmd": [ "dotnet watch test" ] }
+            ]
+        }
+    ]
+}

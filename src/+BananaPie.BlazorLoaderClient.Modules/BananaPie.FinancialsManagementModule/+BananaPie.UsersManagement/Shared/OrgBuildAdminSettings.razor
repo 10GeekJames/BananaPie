@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Text.Json.Serialization
+
+@inject IJSRuntime jsRuntime
+@inject NavigationManager NavigationManager
+@inject ISignalRService SignalRService
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<OrgBuildAdminSettings> Localize
+
+<SetModuleAdminSettings>
+    <MudText Style="margin-top: 5px;" Typo="Typo.h5">Quick Links</MudText>
+    <MudGrid>
+        <MudItem xs="12">
+            <MudLink Href="/orgbuilder">
+                Home
+            </MudLink>            
+        </MudItem>        
+    </MudGrid>
+</SetModuleAdminSettings> 
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+}

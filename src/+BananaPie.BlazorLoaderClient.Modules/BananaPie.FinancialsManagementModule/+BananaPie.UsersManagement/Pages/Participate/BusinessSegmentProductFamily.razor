@@ -1,0 +1,37 @@
+@page "/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/{BusinessProductFamilyName}"
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> Localize
+@inject IJSRuntime jsRuntime
+
+<div>
+    <Title Value="@Title" />
+    <p> Welcome to the @BusinessProductFamilyName fam of the @BusinessSegmentName seg of the @BusinessName biz of the @BookADateName org </p>
+    <MudPaper> 
+        <p>Products</p>       
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/{BusinessProductFamilyName}/ProductA1")>Product A.1</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/{BusinessProductFamilyName}/ProductA2")>Product A.2</MudLink>
+        <MudLink Href=@($"/orgbuilder/p/{BookADateName}/{BusinessName}/{BusinessSegmentName}/{BusinessProductFamilyName}/ProductA3")>Product A.3</MudLink>        
+    </MudPaper>
+    <MudButton>Add Existing Product to @BusinessProductFamilyName</MudButton>
+    <MudButton>Add New Product to @BusinessProductFamilyName</MudButton>
+</div>
+
+@code {
+    [Parameter]
+    public string BookADateName { get; set; }
+    [Parameter]
+    public string BusinessName { get; set; }
+    [Parameter]
+    public string BusinessSegmentName { get; set; }
+    [Parameter]
+    public string BusinessProductFamilyName {get;set;}
+
+
+    public string Title { get; private set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.Title = $"{BusinessSegmentName} < {BusinessName} < {BookADateName}";
+        await base.OnInitializedAsync();
+    }
+}

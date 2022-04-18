@@ -1,0 +1,6 @@
+BananaPie.Users.Api.Tests.ControllerViews.HomeControllerIndex.ReturnsViewWithCorrectMessage
+BananaPie.Users.Api.Tests.ControllerApis.MetaControllerInfo.ReturnsVersionAndLastUpdateDate
+BananaPie.Users.Api.Tests.ApiEndpoints.GetUserByEmail.ReturnsSeedBananaPieUserGivenEmailAddress
+BananaPie.Users.Api.Tests.ApiEndpoints.GetUserById.ReturnsSeedBananaPieUserGivenGuid
+BananaPie.Users.Api.Tests.ApiEndpoints.GetUserById.ReturnsNotFoundGivenBadGuid
+BananaPie.Users.Api.Tests.ApiEndpoints.HealthCheck.HealthCheckPasses

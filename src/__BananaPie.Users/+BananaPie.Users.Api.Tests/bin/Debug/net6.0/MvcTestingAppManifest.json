@@ -1,0 +1,9 @@
+{
+  "BananaPie.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\___BananaPie.Core",
+  "BananaPie.Kernel, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\____BananaPie.Kernel",
+  "BananaPie.Users.Api.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\__BananaPie.Users\\_BananaPie.Users.Api.Common",
+  "BananaPie.Users.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\__BananaPie.Users\\+BananaPie.Users.Api",
+  "BananaPie.Users.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\__BananaPie.Users\\___BananaPie.Users.Core",
+  "BananaPie.Users.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\__BananaPie.Users\\___BananaPie.Users.Core.Tests",
+  "BananaPie.Users.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\code\\2022\\Bananapie\\src\\__BananaPie.Users\\__BananaPie.Users.Infrastructure"
+}

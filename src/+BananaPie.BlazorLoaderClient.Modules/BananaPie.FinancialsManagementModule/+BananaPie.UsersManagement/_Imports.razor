@@ -1,0 +1,33 @@
+@using System.Net.Http
+@using System.Net.Http.Json
+
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.Web.Extensions.Head
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+
+@using AddToMeeting.BlazorClient.Common.Shared
+@using AddToMeeting.BlazorClient.Common.Interfaces
+@using AddToMeeting.BlazorClient.Common.Services
+@using AddToMeeting.BlazorClient.Common;
+
+@using BookADatesModule.Api.Common.ViewModels
+@using BookADatesModule.Api.Common.Interfaces
+
+@using BookADatesModuleServiceLoader
+@using BookADatesModuleService
+@using BookADatesModule.Shared
+
+@using Blazored.FluentValidation
+
+@using MudBlazor
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<BookADatesBase> LocalizeShared
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddToMeeting.BlazorClient.Common.Shared.SharedLanguageBase> LocalizeSharedBase
+@inject FeatureFlags FeatureFlags
+
+@inject LazyMeJsInterop interop
+@layout BookADatesLayout
